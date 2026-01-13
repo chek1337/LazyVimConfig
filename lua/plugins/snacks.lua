@@ -3,7 +3,33 @@ return {
   priority = 10,
   config = function()
     local opts = {
-      dashboard = { enabled = true },
+      -- dashboard = {
+      --   enabled = true,
+      --   preset = "pokemon",
+      -- },
+      dashboard = {
+        enabled = true,
+        preset = {
+          -- https://github.com/MaximilianLloyd/ascii.nvim/blob/master/lua/ascii/text/neovim.lua
+          header = [[
+
+                                                                    
+      ████ ██████           █████      ██                     
+     ███████████             █████                             
+     █████████ ███████████████████ ███   ███████████   
+    █████████  ███    █████████████ █████ ██████████████   
+   █████████ ██████████ █████████ █████ █████ ████ █████   
+ ███████████ ███    ███ █████████ █████ █████ ████ █████  
+██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+        },
+        sections = {
+          { section = "header" },
+          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+          { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+          { section = "startup" },
+        },
+      },
       picker = {
         layout = {
           preset = "dropdown",
