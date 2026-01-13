@@ -3,3 +3,9 @@
 -- Add any additional options here
 
 vim.g.lazyvim_check_order = false
+
+vim.diagnostic.config({
+  virtual_lines = {
+    current_line = true,
+  },
+})

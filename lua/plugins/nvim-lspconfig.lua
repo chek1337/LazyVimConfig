@@ -1,6 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
+    diagnostics = {
+      virtual_text = false, -- Hide inline text messages
+    },
     servers = {
       ["*"] = {
         keys = {
