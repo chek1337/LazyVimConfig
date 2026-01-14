@@ -3,10 +3,6 @@ return {
   priority = 10,
   config = function()
     local opts = {
-      -- dashboard = {
-      --   enabled = true,
-      --   preset = "pokemon",
-      -- },
       dashboard = {
         enabled = true,
         preset = {
