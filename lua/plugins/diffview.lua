@@ -14,15 +14,5 @@ return {
         win_opts = {},
       },
     },
-
-    -- Чтобы diff занимал больше места — можно сделать layout вертикальным
-    -- view = {
-    --   default = {
-    --     layout = "diff2_vertical", -- или оставить horizontal
-    --   },
-    --   merge_tool = {
-    --     layout = "diff3_vertical",
-    --   },
-    -- },
   },
 }
