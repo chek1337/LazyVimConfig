@@ -1,0 +1,28 @@
+{
+  "Cell Divider (Basic)": {
+    "prefix": [
+      "#cld",
+      "cell",
+      "div"
+    ],
+    "body": [
+      "# %% ${1:Cell Title}",
+      "$0"
+    ],
+    "description": "Insert a basic #%% cell divider"
+  },
+  "Cell Divider (Styled)": {
+    "prefix": [
+      "#clb",
+      "cellbar",
+      "divbar"
+    ],
+    "body": [
+      "# %% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "# %%   ${1:DESCRIPTIVE TITLE}",
+      "# %% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
+      "$0"
+    ],
+    "description": "Insert a styled cell divider with a title bar"
+  },
+}
