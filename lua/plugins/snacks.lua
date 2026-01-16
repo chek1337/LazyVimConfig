@@ -59,6 +59,13 @@ return {
         },
       },
     })
+    layouts.select = vim.tbl_deep_extend("force", layouts.select, {
+      layout = {
+        width = 0.95, -- Увеличил ширину, чтобы сделать шире (как в dropdown)
+        min_width = 120, -- Увеличил минимальную ширину
+        max_width = nil, -- Убрал максимум или можно установить выше, если нужно
+      },
+    })
   end,
 }
 
