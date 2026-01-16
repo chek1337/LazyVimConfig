@@ -17,8 +17,53 @@ return {
             command = { "zsh" },
           },
           python = {
-            command = { "ipython", "--no-autoindent" }, -- or { "ipython", "--no-autoindent" }
-            format = common.bracketed_paste_python,
+            command = function()
+              local venv_path = require("venv-selector").venv()
+              local venv_name = ""
+
+              if venv_path and venv_path ~= "" then
+                venv_name = vim.fn.fnamemodify(venv_path, ":t")
+              else
+                venv_name = "Global Python"
+              end
+
+              print("Virtual environment activated: " .. venv_name)
+
+              -- Start Python with a command to print the environment info
+              return {
+                "ipython",
+                "--no-autoindent",
+                "-c",
+                "import sys; print('========== iron.nvim REPL =========='); print('Venv:', '"
+                  .. venv_name
+                  .. "'); print('Python:', sys.version.split()[0]); print('====================================')",
+                "-i", -- Keep interactive mode after executing
+              }
+            end,
+
+            -- https://github.com/g0t4/dotfiles/blob/1a7e5601553c0bcef6c4c9cc8578a0158efc42f5/.config/nvim/lua/plugins/terminals.lua#L564
+            format = function(lines, extras)
+              -- TLDR:
+              --   I really like cell per line which effectively auto labels each print statement! with the full chunk of code
+              --     really this is one statement per cell (i.e. functions act as wrappers)
+              --     I do not really want to label my output manually every time
+              --     bracketed_paste => runs entire selection as one chunk (so isf => all of file in one go is impossible to discren WTF is WHAT)
+              --   ONLY nice to have would be to stop on the first failing line (cell)  when running multiple lines (cells)
+              --   IF I want batched lines (not interleaved):
+              --     I can use a function which is treated as one statement/line/cell
+              --   TBH, it did take a second to get used to the interleaved code and lines but now I really, really like it
+              -- result = require("iron.fts.common").bracketed_paste(lines, extras) -- everything selected is one cell (yuck)
+              result = require("iron.fts.common").bracketed_paste_python(lines, extras) -- *** defacto is cell per line (yes)
+
+              --  FYI I am unsure that bracketed_paste/bracketed_paste_python differences are intended so if they "fix" the way I like it, then I should add my own version
+
+              -- remove lines that only contain a comment
+              -- FYI I really like this with cell per line style! b/c it makes it more compact!!!
+              filtered = vim.tbl_filter(function(line)
+                return not string.match(line, "^%s*#")
+              end, result)
+              return filtered
+            end,
             block_dividers = { "# %%", "#%%" },
             env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
           },
