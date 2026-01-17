@@ -3,6 +3,10 @@ return {
   priority = 10,
   config = function()
     local opts = {
+      notifier = {
+        timeout = 5000,
+        style = "minimal",
+      },
       dashboard = {
         enabled = true,
         preset = {
