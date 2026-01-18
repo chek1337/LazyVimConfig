@@ -11,4 +11,6 @@ vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
 vim.keymap.set("i", "<C-k>", "<Up>", { desc = "Move up" })
 vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right" })
 
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
 vim.keymap.set({ "n", "v" }, "x", '"_x')
