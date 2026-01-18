@@ -15,6 +15,17 @@ return {
           client.server_capabilities.documentFormattingProvider = false
         end,
       },
+      lua_ls = {
+        settings = {
+          Lua = {
+            workspace = {
+              library = {
+                -- "~/.local/share/nvim/lazy/",
+              },
+            },
+          },
+        },
+      },
     },
   },
 }
