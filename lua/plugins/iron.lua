@@ -37,7 +37,7 @@ return {
                 "-i", -- Keep interactive mode after executing
               }
             end,
-
+            -- https://github.com/g0t4/dotfiles/blob/1a7e5601553c0bcef6c4c9cc8578a0158efc42f5/.config/nvim/lua/plugins/terminals.lua#L564
             format = function(lines, extras)
               result = require("iron.fts.common").bracketed_paste_python(lines, extras)
               filtered = vim.tbl_filter(function(line)
