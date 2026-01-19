@@ -4,6 +4,8 @@ return {
   opts = {
     options = {
       always_show_bufferline = true,
+      -- numbers = "ordinal",
+      separator_style = "slant",
     },
   },
 }
