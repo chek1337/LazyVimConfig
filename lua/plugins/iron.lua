@@ -55,10 +55,15 @@ return {
         dap_integration = true,
 
         repl_open_cmd = {
-          view.right("40%"),
+          view.offset({
+            width = "40%",
+            height = screen_h - 2,
+            w_offset = view.helpers.flip(0),
+            h_offset = view.helpers.flip(1),
+          }),
           view.offset({
             width = screen_w - 16,
-            height = screen_h - 1,
+            height = screen_h - 2,
             w_offset = 8,
             h_offset = view.helpers.flip(1),
           }),
