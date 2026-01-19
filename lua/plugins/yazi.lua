@@ -36,6 +36,10 @@ return {
     open_for_directories = false,
     floating_window_scaling_factor = 1,
     yazi_floating_window_border = "none",
+    integrations = {
+      grep_in_directory = "snacks.picker",
+      grep_in_selected_files = "snacks.picker",
+    },
   },
   -- 👇 if you use `open_for_directories=true`, this is recommended
   init = function()
