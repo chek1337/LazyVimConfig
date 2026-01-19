@@ -4,8 +4,8 @@
 
 vim.g.lazyvim_check_order = false
 
-vim.diagnostic.config({
-  virtual_lines = {
-    current_line = true,
-  },
-})
+-- vim.diagnostic.config({
+--   virtual_lines = {
+--     current_line = true,
+--   },
+-- })

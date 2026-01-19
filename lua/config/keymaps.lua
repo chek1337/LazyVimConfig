@@ -14,3 +14,15 @@ vim.keymap.set("i", "<C-l>", "<Right>", { desc = "Move right" })
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 vim.keymap.set({ "n", "v" }, "x", '"_x')
+
+vim.keymap.set("n", "<leader>udd", function()
+  local cfg = vim.diagnostic.config()
+  local virt = cfg.virtual_lines
+  if not virt then
+    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+  elseif type(virt) == "table" and virt.current_line then
+    vim.diagnostic.config({ virtual_lines = true })
+  else
+    vim.diagnostic.config({ virtual_lines = false })
+  end
+end, { desc = "Cycle virtual_lines modes" })
