@@ -35,6 +35,8 @@ return {
           preset = "dropdown",
         },
       },
+      indent = {},
+      scope = {},
     }
     require("snacks").setup(opts)
     local layouts = require("snacks.picker.config.layouts")
