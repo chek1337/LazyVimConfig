@@ -31,7 +31,7 @@ return {
     },
   opts = {
     winbar = {
-      sections = { "watches", "scopes", "breakpoints", "repl", "exceptions", "threads", "sessions" },
+      sections = { "watches", "scopes", "breakpoints", "repl", "exceptions", "threads", "sessions", "console" },
       controls = {
         enabled = true,
         position = "right",
@@ -45,6 +45,6 @@ return {
         position = "right",
       },
     },
-    auto_toggle = true,
+    auto_toggle = false,
   },
 }
