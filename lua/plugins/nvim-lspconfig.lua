@@ -26,6 +26,15 @@ return {
           },
         },
       },
+      basedpyright = {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "standard",
+            },
+          },
+        },
+      },
     },
   },
 }
