@@ -18,11 +18,37 @@ vim.keymap.set({ "n", "v" }, "x", '"_x')
 vim.keymap.set("n", "<leader>udd", function()
   local cfg = vim.diagnostic.config()
   local virt = cfg.virtual_lines
-  if not virt then
-    vim.diagnostic.config({ virtual_lines = { current_line = true } })
-  elseif type(virt) == "table" and virt.current_line then
-    vim.diagnostic.config({ virtual_lines = true })
-  else
+
+  if type(virt) == "table" and virt.current_line then
+    -- Если уже включен режим только текущей линии - выключаем
     vim.diagnostic.config({ virtual_lines = false })
+  else
+    -- Иначе включаем режим только текущей линии
+    vim.diagnostic.config({ virtual_lines = { current_line = true } })
   end
-end, { desc = "Cycle virtual_lines modes" })
+end, { desc = "Toggle virtual lines for current line only" })
+
+vim.keymap.set("n", "<leader>udD", function()
+  local cfg = vim.diagnostic.config()
+  local virt = cfg.virtual_lines
+
+  if virt == true or (type(virt) == "table" and not virt.current_line) then
+    -- Если уже включена полная диагностика - выключаем
+    vim.diagnostic.config({ virtual_lines = false })
+  else
+    -- Иначе включаем полную диагностику
+    vim.diagnostic.config({ virtual_lines = true })
+  end
+end, { desc = "Toggle full virtual lines" })
+
+-- vim.keymap.set("n", "<leader>udd", function()
+--   local cfg = vim.diagnostic.config()
+--   local virt = cfg.virtual_lines
+--   if not virt then
+--     vim.diagnostic.config({ virtual_lines = { current_line = true } })
+--   elseif type(virt) == "table" and virt.current_line then
+--     vim.diagnostic.config({ virtual_lines = true })
+--   else
+--     vim.diagnostic.config({ virtual_lines = false })
+--   end
+-- end, { desc = "Cycle virtual_lines modes" })
