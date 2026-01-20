@@ -7,7 +7,7 @@ return {
       "clangd",
       "clang-format",
       "black",
-      "pyright",
+      "basedpyright",
       "jq",
       "debugpy",
     },
