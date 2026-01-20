@@ -6,6 +6,13 @@ return {
     { "nvim-lua/plenary.nvim", lazy = true },
   },
   keys = {
+    {
+      "<leader><leader>",
+      mode = { "n", "v" },
+      "<cmd>Yazi<cr>",
+      desc = "Open yazi at the current file",
+    },
+
     -- p - provider
     {
       "<leader>Pp",
