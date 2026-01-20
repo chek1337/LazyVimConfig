@@ -37,6 +37,13 @@ return {
       },
       indent = {},
       scope = {},
+      quickfile = {},
+      scroll = {
+        animate = {
+          duration = { step = 10, total = 200 },
+          easing = "outExpo", --  outExpo, outInExpo, outBack, outInExpo
+        },
+      },
     }
     require("snacks").setup(opts)
     local layouts = require("snacks.picker.config.layouts")
