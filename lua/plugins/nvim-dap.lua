@@ -1,23 +1,5 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/dap/core.lua
 
----@param config {type?:string, args?:string[]|fun():string[]?}
-local function get_args(config)
-  local args = type(config.args) == "function" and (config.args() or {}) or config.args or {} --[[@as string[] | string ]]
-  local args_str = type(args) == "table" and table.concat(args, " ") or args --[[@as string]]
-
-  config = vim.deepcopy(config)
-  ---@cast args string[]
-  config.args = function()
-    local new_args = vim.fn.expand(vim.fn.input("Run with args: ", args_str)) --[[@as string]]
-    if config.type and config.type == "java" then
-      ---@diagnostic disable-next-line: return-type-mismatch
-      return new_args
-    end
-    return require("dap.utils").splitstr(new_args)
-  end
-  return config
-end
-
 return {
   {
     "mfussenegger/nvim-dap",
@@ -26,11 +8,6 @@ return {
       "igorlfs/nvim-dap-view",
       {
         "mfussenegger/nvim-dap-python",
-        -- stylua: ignore
-        keys = {
-        -- { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-        -- { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
-      },
         config = function()
           require("dap-python").setup("debugpy-adapter")
         end,
@@ -84,17 +61,5 @@ return {
         return vim.json.decode(json.json_strip_comments(str))
       end
     end,
-  },
-
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = "mason.nvim",
-    cmd = { "DapInstall", "DapUninstall" },
-    opts = {
-      automatic_installation = true,
-      handlers = {
-        python = function() end,
-      },
-    },
   },
 }
