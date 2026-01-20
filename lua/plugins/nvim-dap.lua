@@ -18,6 +18,13 @@ local function get_args(config)
   return config
 end
 
+local float_params = {
+  width = 100,
+  height = 100,
+  enter = true,
+  position = "center",
+}
+
 return {
   {
     "mfussenegger/nvim-dap",
@@ -93,8 +100,64 @@ return {
     keys = {
       { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
       { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "x"} },
+      { "<leader>dfs",
+        function()
+          require("dapui").float_element("scopes", float_params) 
+        end, 
+        desc = "Open Floating Scopes", mode = {"n", "x"} },
+      { "<leader>dfS",
+        function()
+          require("dapui").float_element("stacks", float_params) 
+        end, 
+        desc = "Open Floating Stacks", mode = {"n", "x"} },
+      { "<leader>dfw",
+        function()
+          require("dapui").float_element("watches", float_params) 
+        end, 
+        desc = "Open Floating Watches", mode = {"n", "x"} },
+      { "<leader>dfb",
+        function()
+          require("dapui").float_element("breakpoints", float_params) 
+        end, 
+        desc = "Open Floating Breakpoints", mode = {"n", "x"} },
+      { "<leader>dfr",
+        function()
+          require("dapui").float_element("repl", float_params) 
+        end, 
+        desc = "Open Floating Repl", mode = {"n", "x"} },
+      { "<leader>dfc",
+        function()
+          require("dapui").float_element("console", float_params) 
+        end, 
+        desc = "Open Floating Console", mode = {"n", "x"} },
     },
-    opts = {},
+    opts = {
+      layouts = {
+        {
+          -- You can change the order of elements in the sidebar
+          elements = {
+            -- Provide IDs as strings or tables with "id" and "size" keys
+            {
+              id = "scopes",
+              size = 0.25, -- Can be float or integer > 1
+            },
+            { id = "breakpoints", size = 0.25 },
+            { id = "stacks", size = 0.25 },
+            { id = "watches", size = 0.25 },
+          },
+          size = 40,
+          position = "left", -- Can be "left" or "right"
+        },
+        {
+          elements = {
+            "repl",
+            "console",
+          },
+          size = 10,
+          position = "bottom", -- Can be "bottom" or "top"
+        },
+      },
+    },
     config = function(_, opts)
       local dap = require("dap")
       local dapui = require("dapui")

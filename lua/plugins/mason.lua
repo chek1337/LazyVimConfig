@@ -9,6 +9,7 @@ return {
       "black",
       "pyright",
       "jq",
+      "debugpy",
     },
   },
 }
