@@ -54,16 +54,18 @@ return {
         },
       },
     },
-    indent = {},
-    scope = {},
-    quickfile = {},
+    indent = { enabled = true },
+    scope = { enabled = true },
+    quickfile = { enabled = true },
     scroll = {
+      enabled = true,
       animate = {
         duration = { step = 10, total = 200 },
         -- https://github.com/kikito/tween.lua?tab=readme-ov-file#easing-functions
         easing = "outExpo", --  outExpo, outInExpo, outBack, outInExpo
       },
     },
+    words = { enabled = true },
   },
 }
 
