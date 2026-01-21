@@ -37,7 +37,7 @@ return {
       size = 0.35,
       position = "below",
       terminal = {
-        size = 0.4,
+        size = 0.45,
         position = "right",
       },
     },
