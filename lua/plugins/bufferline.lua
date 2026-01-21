@@ -4,7 +4,11 @@ return {
   opts = {
     options = {
       right_mouse_command = false,
-      middle_mouse_command = "bdelete! %d",
+      middle_mouse_command = function(bufnum)
+        vim.defer_fn(function()
+          Snacks.bufdelete(bufnum)
+        end, 100)
+      end,
       always_show_bufferline = true,
       sort_by = "id",
       separator_style = "slant",
