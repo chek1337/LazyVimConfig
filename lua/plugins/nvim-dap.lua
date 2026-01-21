@@ -21,13 +21,13 @@ return {
     -- stylua: ignore
      keys = {
       { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Continue (F5)" },
-      { "<S-F5>", function() require("dap").terminate() end, desc = "Debug: Stop (Shift+F5)" },
-      { "<C-S-F5>", function() require("dap").restart() end, desc = "Debug: Restart (Ctrl+Shift+F5)" },
+      { "<F17>", function() require("dap").terminate() end, desc = "Debug: Stop (Shift+F5)" },
+      { "<F41>", function() require("dap").restart() end, desc = "Debug: Restart (Ctrl+Shift+F5)" },
       { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint (F9)" },
-      { "<S-F9>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
+      { "<F21>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Conditional Breakpoint" },
       { "<F10>", function() require("dap").step_over() end, desc = "Debug: Step Over (F10)" },
       { "<F11>", function() require("dap").step_into() end, desc = "Debug: Step Into (F11)" },
-      { "<S-F11>", function() require("dap").step_out() end, desc = "Debug: Step Out (Shift+F11)" },
+      {  "<F23>", function() require("dap").step_out() end, desc = "Debug: Step Out (Shift+F11)" },
 
       { "<leader>dC", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
       { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
