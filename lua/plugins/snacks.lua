@@ -65,7 +65,7 @@ return {
         easing = "outExpo", --  outExpo, outInExpo, outBack, outInExpo
       },
     },
-    words = { enabled = true },
+    words = { enabled = false },
   },
 }
 
