@@ -1,6 +1,6 @@
 return {
   "GCBallesteros/jupytext.nvim",
-  lazy = false,
+  event = "VeryLazy",
   config = function()
     require("jupytext").setup({
       style = "percent",

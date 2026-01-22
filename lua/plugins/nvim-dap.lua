@@ -1,22 +1,23 @@
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/plugins/extras/dap/core.lua
 
 return {
-  {
-    "mfussenegger/nvim-dap",
-    dependencies = {
-      "rcarriga/nvim-dap-ui",
-      "igorlfs/nvim-dap-view",
-      {
-        "mfussenegger/nvim-dap-python",
-        config = function()
-          require("dap-python").setup("debugpy-adapter")
-        end,
-      },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        opts = {},
-      },
+  "mfussenegger/nvim-dap",
+  event = "VeryLazy",
+  dependencies = {
+    {
+      "mfussenegger/nvim-dap-python",
+
+      event = "VeryLazy",
+      config = function()
+        require("dap-python").setup("debugpy-adapter")
+      end,
     },
+    {
+      "theHamsta/nvim-dap-virtual-text",
+      event = "VeryLazy",
+      opts = {},
+    },
+  },
 
     -- stylua: ignore
      keys = {
@@ -38,28 +39,27 @@ return {
       { "<leader>dW", function() require("dap.ui.widgets").hover() end, desc = "Debug Widgets" },
     },
 
-    config = function()
-      -- load mason-nvim-dap here, after all adapters have been setup
-      if LazyVim.has("mason-nvim-dap.nvim") then
-        require("mason-nvim-dap").setup(LazyVim.opts("mason-nvim-dap.nvim"))
-      end
+  config = function()
+    -- load mason-nvim-dap here, after all adapters have been setup
+    if LazyVim.has("mason-nvim-dap.nvim") then
+      require("mason-nvim-dap").setup(LazyVim.opts("mason-nvim-dap.nvim"))
+    end
 
-      vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
+    vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-      for name, sign in pairs(LazyVim.config.icons.dap) do
-        sign = type(sign) == "table" and sign or { sign }
-        vim.fn.sign_define(
-          "Dap" .. name,
-          { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
-        )
-      end
+    for name, sign in pairs(LazyVim.config.icons.dap) do
+      sign = type(sign) == "table" and sign or { sign }
+      vim.fn.sign_define(
+        "Dap" .. name,
+        { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
+      )
+    end
 
-      -- setup dap config by VsCode launch.json file
-      local vscode = require("dap.ext.vscode")
-      local json = require("plenary.json")
-      vscode.json_decode = function(str)
-        return vim.json.decode(json.json_strip_comments(str))
-      end
-    end,
-  },
+    -- setup dap config by VsCode launch.json file
+    local vscode = require("dap.ext.vscode")
+    local json = require("plenary.json")
+    vscode.json_decode = function(str)
+      return vim.json.decode(json.json_strip_comments(str))
+    end
+  end,
 }

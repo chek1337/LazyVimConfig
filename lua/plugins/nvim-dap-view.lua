@@ -2,6 +2,7 @@ vim.g.dap_view_open = false
 
 return {
   "igorlfs/nvim-dap-view",
+  event = "VeryLazy",
   keys = {
     {
       "<leader>dd",

@@ -1,6 +1,6 @@
 return {
   "folke/snacks.nvim",
-  priority = 10,
+  priority = 10000,
   opts = {
     notifier = {
       timeout = 5000,

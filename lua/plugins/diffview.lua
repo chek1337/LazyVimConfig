@@ -1,5 +1,6 @@
 return {
   "sindrets/diffview.nvim",
+  event = "VeryLazy",
   opts = {
     file_panel = {
       listing_style = "tree",
@@ -9,8 +10,8 @@ return {
       },
       win_config = {
         type = "split",
-        position = "bottom", -- ← главное изменение
-        height = 10, -- подбери под свой экран
+        position = "bottom",
+        height = 10,
         win_opts = {},
       },
     },
