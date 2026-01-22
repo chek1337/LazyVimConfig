@@ -17,6 +17,8 @@ Snacks.toggle.zoom():map("<C-W>z")
 
 vim.keymap.set({ "n", "v" }, "x", '"_x')
 
+vim.keymap.set("n", "J", "<Nop>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>M", "<cmd>Mason<CR>", { desc = "Open Mason" })
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.del("n", "<leader>l")
