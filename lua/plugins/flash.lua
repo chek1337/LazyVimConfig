@@ -1,6 +1,9 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
+  keys = {
+    { "S", mode = { "n", "o", "x" }, false },
+  },
   config = function()
     vim.keymap.set({ "n", "x", "o" }, "s", function()
       require("flash").jump({ search = { mode = "fuzzy" } })
