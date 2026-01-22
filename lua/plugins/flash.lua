@@ -6,7 +6,7 @@ return {
   },
   config = function()
     vim.keymap.set({ "n", "x", "o" }, "s", function()
-      require("flash").jump({ search = { mode = "fuzzy" } })
+      require("flash").jump({ search = { mode = "search" } })
     end, { desc = "Flash continue" })
 
     vim.keymap.set({ "n", "x", "o" }, "<M-w>", function()
