@@ -13,3 +13,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.formatoptions:remove("r")
   end,
 })
+
+vim.api.nvim_create_autocmd("VimLeavePre", {
+  group = vim.api.nvim_create_augroup("MyCustomExit", { clear = true }),
+  callback = function()
+    vim.cmd("silent! DiffviewClose")
+  end,
+})
