@@ -1,44 +1,66 @@
 return {
   "folke/flash.nvim",
   event = "VeryLazy",
+  ---@type Flash.Config
+  opts = {
+    search = {
+      mode = "search",
+    },
+  },
   keys = {
     { "S", mode = { "n", "o", "x" }, false },
+
+    {
+      "s",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump()
+      end,
+      desc = "Flash continue",
+    },
+
+    {
+      "<M-w>",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          pattern = vim.fn.expand("<cword>"),
+        })
+      end,
+      desc = "Flash current word",
+    },
+
+    {
+      "<M-l>",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          search = { mode = "search", max_length = 0 },
+          label = { after = { 0, 0 } },
+          pattern = "^",
+        })
+      end,
+      desc = "Flash line start",
+    },
+
+    {
+      "<M-s>",
+      mode = { "n", "x", "o" },
+      function()
+        require("flash").jump({
+          pattern = ".",
+          search = {
+            mode = function(pattern)
+              if pattern:sub(1, 1) == "." then
+                pattern = pattern:sub(2)
+              end
+              return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern)
+            end,
+          },
+          jump = { pos = "start" },
+        })
+      end,
+      desc = "Flash word (smart)",
+    },
   },
-  config = function()
-    vim.keymap.set({ "n", "x", "o" }, "s", function()
-      require("flash").jump({ search = { mode = "search" } })
-    end, { desc = "Flash continue" })
-
-    vim.keymap.set({ "n", "x", "o" }, "<M-w>", function()
-      require("flash").jump({
-        pattern = vim.fn.expand("<cword>"),
-      })
-    end, { desc = "Flash continue" })
-
-    vim.keymap.set({ "n", "x", "o" }, "<M-l>", function()
-      require("flash").jump({
-        search = { mode = "search", max_length = 0 },
-        label = { after = { 0, 0 } },
-        pattern = "^",
-      })
-    end, { desc = "Flash continue" })
-
-    vim.keymap.set({ "n", "x", "o" }, "<M-s>", function()
-      require("flash").jump({
-        pattern = ".", -- initialize pattern with any char
-        search = {
-          mode = function(pattern)
-            -- remove leading dot
-            if pattern:sub(1, 1) == "." then
-              pattern = pattern:sub(2)
-            end
-            -- return word pattern and proper skip pattern
-            return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern)
-          end,
-        },
-        -- select the range
-        -- jump = { pos = "range" },
-      })
-    end, { desc = "Flash continue" })
-  end,
 }
