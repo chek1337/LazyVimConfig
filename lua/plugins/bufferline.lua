@@ -20,6 +20,7 @@ return {
         delay = 200,
         reveal = { "close" },
       },
+      diagnostics = false,
     },
   },
 }
