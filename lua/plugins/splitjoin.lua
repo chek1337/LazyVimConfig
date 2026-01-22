@@ -1,7 +1,11 @@
 return {
-  "AndrewRadev/splitjoin.vim",
-  event = "VeryLazy",
-  config = function()
-    vim.g.splitjoin_quiet = 1
-  end,
+  "nvim-mini/mini.splitjoin",
+  version = "*",
+  opts = {
+    mappings = {
+      toggle = "",
+      join = "gjj",
+      split = "gjJ",
+    },
+  },
 }
