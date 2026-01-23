@@ -7,7 +7,7 @@ return {
   },
   ft = "python",
   keys = {
-    { "<localleader>v", "<cmd>VenvSelect<cr>" },
+    { "<localleader>V", "<cmd>VenvSelect<cr>" },
   },
   opts = {
     search = {},
