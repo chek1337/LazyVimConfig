@@ -46,3 +46,64 @@ vim.keymap.set("n", "<leader>udD", function()
     vim.diagnostic.config({ virtual_lines = true })
   end
 end, { desc = "Toggle full virtual lines" })
+
+-- notebook cell jump (based on commentstring + %%)
+local function is_cell_border(lnum)
+  local cs = vim.bo.commentstring
+  if cs == "" then
+    return false
+  end
+
+  local cell_marker = cs:format("%%")
+  local line = vim.api.nvim_buf_get_lines(0, lnum - 1, lnum, false)[1]
+  if not line then
+    return false
+  end
+
+  return vim.startswith(vim.trim(line), cell_marker)
+end
+
+local function goto_next_cell()
+  if vim.bo.commentstring == "" then
+    vim.notify("Buffer has no commentstring set.", vim.log.levels.WARN)
+    return
+  end
+
+  local cur = vim.api.nvim_win_get_cursor(0)[1]
+  local last = vim.api.nvim_buf_line_count(0)
+
+  local lnum = cur + 1
+  while lnum <= last do
+    if is_cell_border(lnum) then
+      vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+      return
+    end
+    lnum = lnum + 1
+  end
+
+  vim.notify("No next notebook cell", vim.log.levels.INFO)
+end
+
+local function goto_prev_cell()
+  if vim.bo.commentstring == "" then
+    vim.notify("Buffer has no commentstring set.", vim.log.levels.WARN)
+    return
+  end
+
+  local cur = vim.api.nvim_win_get_cursor(0)[1]
+
+  local lnum = cur - 1
+  while lnum >= 1 do
+    if is_cell_border(lnum) then
+      vim.api.nvim_win_set_cursor(0, { lnum, 0 })
+      return
+    end
+    lnum = lnum - 1
+  end
+
+  vim.notify("No previous notebook cell", vim.log.levels.INFO)
+end
+
+-- keymaps
+vim.keymap.set("n", "]N", goto_next_cell, { desc = "Next notebook cell" })
+vim.keymap.set("n", "[N", goto_prev_cell, { desc = "Prev notebook cell" })
