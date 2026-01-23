@@ -17,5 +17,6 @@ return {
       snacks = true,
       diffview = true,
     },
+    console_timeout = 100,
   },
 }
