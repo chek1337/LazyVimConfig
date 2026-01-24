@@ -6,10 +6,11 @@ return {
     ensure_installed = {
       "clangd",
       "clang-format",
-      "black",
       "basedpyright",
-      "jq",
       "debugpy",
+      "black",
+      "jq",
+      "ast-grep",
     },
   },
 }
