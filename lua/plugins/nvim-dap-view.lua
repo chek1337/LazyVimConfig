@@ -1,5 +1,3 @@
-vim.g.dap_view_open = false
-
 return {
   "igorlfs/nvim-dap-view",
   event = "VeryLazy",
@@ -7,13 +5,7 @@ return {
     {
       "<leader>dd",
       function()
-        if vim.g.dap_view_open then
-          vim.cmd("DapViewClose!")
-          vim.g.dap_view_open = false
-        else
-          vim.cmd("DapViewOpen")
-          vim.g.dap_view_open = true
-        end
+        vim.cmd("DapViewToggle!")
       end,
       desc = "Debug: Toggle dap-view (open / close + term)",
     },
