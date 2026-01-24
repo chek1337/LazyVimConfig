@@ -62,41 +62,41 @@ return {
             w_offset = view.helpers.flip(0),
             h_offset = view.helpers.flip(1),
           }),
-          view.offset({
-            width = screen_w - 16,
-            height = screen_h - 2,
-            w_offset = 8,
-            h_offset = view.helpers.flip(1),
-          }),
-          view.offset({
-            width = "100%",
-            height = "25%",
-            w_offset = 0,
-            h_offset = view.helpers.flip(1),
-          }),
+          -- view.offset({
+          --   width = screen_w - 16,
+          --   height = screen_h - 2,
+          --   w_offset = 8,
+          --   h_offset = view.helpers.flip(1),
+          -- }),
+          -- view.offset({
+          --   width = "100%",
+          --   height = "25%",
+          --   w_offset = 0,
+          --   h_offset = view.helpers.flip(1),
+          -- }),
         },
       },
       keymaps = {
-        toggle_repl_with_cmd_1 = "<localleader>rr", -- default fast open
-        toggle_repl_with_cmd_2 = "<localleader>re", --  "extended"
-        toggle_repl_with_cmd_3 = "<localleader>rd", -- "down""
-        restart_repl = "<localleader>rR",
+        toggle_repl_with_cmd_1 = "<localleader>\\", -- default fast open
+        -- toggle_repl_with_cmd_2 = "<localleader>re", --  "extended"
+        -- toggle_repl_with_cmd_3 = "<localleader>rd", -- "down""
+        restart_repl = "<C-\\>",
         send_motion = "<localleader>sc",
         visual_send = "<localleader>ss",
         send_file = "<localleader>sf",
         send_line = "<localleader>sl",
         send_paragraph = "<localleader>sp",
         send_until_cursor = "<localleader>su",
-        send_mark = "<localleader>sm",
+        send_mark = "<Nop>",
         send_code_block = "<localleader>ss",
-        send_code_block_and_move = "<localleader>sa",
-        mark_motion = "<localleader>mc",
-        mark_visual = "<localleader>mc",
-        remove_mark = "<localleader>md",
+        send_code_block_and_move = "<M-\\>", -- "<localleader>sa",
+        mark_motion = "<Nop>",
+        mark_visual = "<Nop>",
+        remove_mark = "<Nop>",
         cr = "<localleader>s<cr>",
-        interrupt = "<localleader>s<localleader>",
-        exit = "<localleader>sq",
-        clear = "<localleader>cl",
+        interrupt = "<localleader>si",
+        exit = "<Nop>",
+        clear = "<localleader>sc",
       },
       highlight = {
         italic = true,
