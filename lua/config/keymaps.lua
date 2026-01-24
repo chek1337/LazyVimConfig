@@ -107,5 +107,5 @@ local function goto_prev_cell()
 end
 
 -- keymaps
-vim.keymap.set("n", "]N", goto_next_cell, { desc = "Next notebook cell" })
-vim.keymap.set("n", "[N", goto_prev_cell, { desc = "Prev notebook cell" })
+vim.keymap.set({ "n", "v" }, "]N", goto_next_cell, { desc = "Next notebook cell" })
+vim.keymap.set({ "n", "v" }, "[N", goto_prev_cell, { desc = "Prev notebook cell" })
