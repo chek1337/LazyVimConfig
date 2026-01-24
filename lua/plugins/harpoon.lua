@@ -23,6 +23,13 @@ return {
 
     for i = 1, 4 do
       table.insert(keys, {
+        "<leader>" .. i,
+        function()
+          harpoon:list():select(i)
+        end,
+        desc = "Harpoon to File " .. i,
+      })
+      table.insert(keys, {
         "<leader>h" .. i,
         function()
           harpoon:list():select(i)
