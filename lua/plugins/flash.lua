@@ -9,7 +9,20 @@ return {
   },
   keys = {
     { "S", mode = { "n", "o", "x" }, false },
-
+    { "c-space", mode = { "n", "o", "x" }, false },
+    {
+      "<M-s>",
+      mode = { "n", "o", "x" },
+      function()
+        require("flash").treesitter({
+          actions = {
+            ["<M-s>"] = "next",
+            ["<BS>"] = "prev",
+          },
+        })
+      end,
+      desc = "Treesitter Incremental Selection",
+    },
     {
       "s",
       mode = { "n", "x", "o" },
@@ -18,7 +31,6 @@ return {
       end,
       desc = "Flash continue",
     },
-
     {
       "<M-w>",
       mode = { "n", "x", "o" },
@@ -29,7 +41,6 @@ return {
       end,
       desc = "Flash current word",
     },
-
     {
       "<M-l>",
       mode = { "n", "x", "o" },
@@ -41,26 +52,6 @@ return {
         })
       end,
       desc = "Flash line start",
-    },
-
-    {
-      "<M-s>",
-      mode = { "n", "x", "o" },
-      function()
-        require("flash").jump({
-          pattern = ".",
-          search = {
-            mode = function(pattern)
-              if pattern:sub(1, 1) == "." then
-                pattern = pattern:sub(2)
-              end
-              return ([[\<%s\w*\>]]):format(pattern), ([[\<%s]]):format(pattern)
-            end,
-          },
-          jump = { pos = "start" },
-        })
-      end,
-      desc = "Flash word (smart)",
     },
   },
 }
