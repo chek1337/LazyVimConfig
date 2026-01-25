@@ -21,20 +21,21 @@ return {
       { "]g", function() harpoon:list():next() end, desc = "Next Harpoon File" } ,
     }
 
-    for i = 1, 4 do
+    for i = 1, 9 do
       table.insert(keys, {
         "<leader>" .. i,
         function()
           harpoon:list():select(i)
         end,
-        desc = "Harpoon to File " .. i,
+        desc = "which_key_ignore",
       })
       table.insert(keys, {
         "<leader>h" .. i,
         function()
           harpoon:list():select(i)
         end,
-        desc = "Harpoon to File " .. i,
+        --stylua: ignore
+        desc = "Harpoon to File " .. i .. " (\"<leader>" .. i .. "\")",
       })
       table.insert(keys, {
         "<leader>hd" .. i,
