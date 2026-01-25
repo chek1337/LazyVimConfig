@@ -19,25 +19,26 @@ return {
     },
   },
 
-    -- stylua: ignore
-     keys = {
-      { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Continue (F5)" },
-      { "<F17>", function() require("dap").terminate() end, desc = "Debug: Stop (Shift+F5)" },
-      { "<F41>", function() require("dap").restart() end, desc = "Debug: Restart (Ctrl+Shift+F5)" },
-      { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint (F9)" },
-      { "<F21>", function() require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, desc = "Debyg: Conditional Breakpoint (Shift + F9)" },
-      { "<F10>", function() require("dap").step_over() end, desc = "Debug: Step Over (F10)" },
-      { "<F11>", function() require("dap").step_into() end, desc = "Debug: Step Into (F11)" },
-      {  "<F23>", function() require("dap").step_out() end, desc = "Debug: Step Out (Shift+F11)" },
+  -- stylua: ignore
+  keys = {
+    { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Continue (F5)" },
+    { "<F17>", function() require("dap").terminate() end, desc = "Debug: Stop (Shift+F5)" },
+    { "<F41>", function() require("dap").restart() end, desc = "Debug: Restart (Ctrl+Shift+F5)" },
+    { "<F9>", function() require('persistent-breakpoints.api').toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint (F9)" },
+    { "<F21>", function() require('persistent-breakpoints.api').set_conditional_breakpoint() end, desc = "Debug: Conditional Breakpoint (Shift + F9)" },
+    { "<leader>dc", function() require('persistent-breakpoints.api').clear_all_breakpoints() end, desc = "Debug: Clear All Breakpoints" },
+    { "<F10>", function() require("dap").step_over() end, desc = "Debug: Step Over (F10)" },
+    { "<F11>", function() require("dap").step_into() end, desc = "Debug: Step Into (F11)" },
+    {  "<F23>", function() require("dap").step_out() end, desc = "Debug: Step Out (Shift+F11)" },
 
-      { "<F8>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
-      { "<leader>dg", function() require("dap").goto_() end, desc = "Go to Line (No Execute)" },
-      { "<leader>dj", function() require("dap").down() end, desc = "Down Stack" },
-      { "<leader>dk", function() require("dap").up() end, desc = "Up Stack" },
-      { "<leader>dl", function() require("dap").run_last() end, desc = "Run Last" },
-      -- { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
-      { "<leader>dW", function() require("dap.ui.widgets").hover() end, desc = "Debug Widgets" },
-    },
+    { "<F8>", function() require("dap").run_to_cursor() end, desc = "Debug: Run to Cursor" },
+    { "<leader>dg", function() require("dap").goto_() end, desc = "Debug: Go to Line (No Execute)" },
+    { "<leader>dj", function() require("dap").down() end, desc = "Debug: Down Stack" },
+    { "<leader>dk", function() require("dap").up() end, desc = "Debug: Up Stack" },
+    { "<leader>dl", function() require("dap").run_last() end, desc = "Debug: Run Last" },
+    -- { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle REPL" },
+    { "<leader>dW", function() require("dap.ui.widgets").hover() end, desc = "Debug: Window Widget" },
+  },
 
   config = function()
     -- load mason-nvim-dap here, after all adapters have been setup
