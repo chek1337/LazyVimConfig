@@ -5,6 +5,7 @@
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode with jj" })
 vim.keymap.set({ "n", "v" }, "q", "<Nop>", { desc = "Disable macros completely" })
+vim.keymap.set({ "n", "v" }, "<M-q>", "q", { desc = "Write macros" })
 
 vim.keymap.set("i", "<C-h>", "<Left>", { desc = "Move left" })
 vim.keymap.set("i", "<C-j>", "<Down>", { desc = "Move down" })
