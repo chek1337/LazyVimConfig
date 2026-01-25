@@ -81,7 +81,7 @@ return {
         -- toggle_repl_with_cmd_2 = "<localleader>re", --  "extended"
         -- toggle_repl_with_cmd_3 = "<localleader>rd", -- "down""
         restart_repl = "<C-\\>",
-        send_motion = "<localleader>sc",
+        send_motion = "<Nop>",
         visual_send = "<localleader>ss",
         send_file = "<localleader>sf",
         send_line = "<localleader>sl",
