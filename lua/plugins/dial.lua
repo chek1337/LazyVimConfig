@@ -7,6 +7,7 @@ return {
       default = {
         augend.integer.alias.decimal,
         augend.constant.alias.bool,
+        augend.constant.alias.Bool,
         augend.integer.alias.hex,
       },
     })
