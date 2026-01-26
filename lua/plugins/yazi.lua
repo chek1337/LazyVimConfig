@@ -15,32 +15,26 @@ return {
 
     -- p - provider
     {
-      "<leader>Pp",
-      mode = { "n", "v" },
-      "<cmd>Yazi<cr>",
-      desc = "Open yazi at the current file",
-    },
-    {
-      "<leader>PP", -- fallback)))
+      "<leader>pp",
       mode = { "n", "v" },
       "<cmd>Yazi<cr>",
       desc = "Open yazi at the current file",
     },
     {
       -- w - working dir
-      "<leader>Pw",
+      "<leader>pw",
       "<cmd>Yazi cwd<cr>",
       desc = "Open the file manager in nvim's working directory",
     },
     -- r - resume
     {
-      "<leader>Pr",
+      "<leader>pr",
       "<cmd>Yazi toggle<cr>",
       desc = "Resume the last yazi session",
     },
   },
   opts = {
-    open_for_directories = false,
+    open_for_directories = true,
     floating_window_scaling_factor = 1,
     yazi_floating_window_border = "none",
     integrations = {
