@@ -1,0 +1,9 @@
+{
+  "Insert stylua ignore comment": {
+    "prefix": "luaign",
+    "body": [
+      "-- stylua: ignore"
+    ],
+    "description": "Insert stylua ignore comment"
+  }
+}
