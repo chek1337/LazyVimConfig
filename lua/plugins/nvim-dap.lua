@@ -6,7 +6,6 @@ return {
   dependencies = {
     {
       "mfussenegger/nvim-dap-python",
-
       event = "VeryLazy",
       config = function()
         require("dap-python").setup("debugpy-adapter")

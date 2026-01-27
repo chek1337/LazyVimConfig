@@ -1,5 +1,6 @@
 return {
   "chrisgrieser/nvim-spider",
+  event = "VeryLazy",
   opts = function()
     local spider_toggle = Snacks.toggle({
       name = "Spider motions",
