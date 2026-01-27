@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.opt.cursorline = false
-vim.o.scrolloff = 10
+vim.o.scrolloff = 1
 
 vim.g.lazyvim_check_order = false
 

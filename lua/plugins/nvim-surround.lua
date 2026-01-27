@@ -1,6 +1,7 @@
 return {
   "kylechui/nvim-surround",
   event = "VeryLazy",
+  enabled = false, -- now using mini.surround
   opts = {
     keymaps = {
       -- Capital S and C - is block additon
