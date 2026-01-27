@@ -34,6 +34,6 @@ return {
         position = "right",
       },
     },
-    auto_toggle = false,
+    auto_toggle = true,
   },
 }
