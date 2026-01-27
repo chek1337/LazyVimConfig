@@ -3,7 +3,7 @@ return {
   priority = 10000,
   opts = {
     notifier = {
-      timeout = 5000,
+      timeout = 2000,
       style = "minimal",
     },
     dashboard = {
