@@ -1,6 +1,10 @@
 return {
   "akinsho/bufferline.nvim",
   priority = 100000,
+  keys = {
+    { "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+    { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
+  },
   opts = {
     options = {
       right_mouse_command = false,
