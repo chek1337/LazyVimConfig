@@ -58,4 +58,23 @@ return {
     spider_toggle:map("<leader>u*")
     spider_toggle:set(true)
   end,
+  config = function(_, opts)
+    require("treesitter-context").setup(opts)
+
+    local context_toggle = Snacks.toggle({
+      name = "Treesitter Context",
+      get = function()
+        return require("treesitter-context").enabled()
+      end,
+      set = function(state)
+        if state then
+          require("treesitter-context").enable()
+        else
+          require("treesitter-context").disable()
+        end
+      end,
+    })
+
+    context_toggle:map("<leader>uC")
+  end,
 }

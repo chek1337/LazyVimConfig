@@ -67,6 +67,9 @@ return {
     },
     words = { enabled = false },
   },
+  keys = {
+    { "<leader>uC", false },
+  },
 }
 
 -- return { -- simple solution to change pickers
