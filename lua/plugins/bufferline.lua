@@ -1,6 +1,10 @@
 return {
   "akinsho/bufferline.nvim",
   priority = 100000,
+  dependencies = {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+  },
   keys = {
     { "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
     { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
@@ -35,7 +39,6 @@ return {
             return math.huge
           end
 
-          -- Получаем относительный путь файла буфера
           local buf_path = vim.api.nvim_buf_get_name(buf_id)
           if buf_path == "" then
             return math.huge
