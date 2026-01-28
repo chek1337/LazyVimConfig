@@ -54,9 +54,9 @@ return {
         callback = function()
           vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#292e39" })
           vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#292e39" })
-          vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
+          -- vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NONE" })
         end,
       })
     end,

@@ -1,3 +1,10 @@
+-- positions vim's `w` will move to
+-- if foo:find("%d") and foo == bar then print("[foo] has" .. bar) end
+--    ^  ^^   ^  ^^  ^   ^   ^  ^   ^    ^    ^  ^  ^ ^  ^ ^  ^  ^ ^  -> 21
+
+-- positions spider's `w` will move to
+-- if foo:find("%d") and foo == bar then print("[foo] has" .. bar) end
+--    ^   ^      ^   ^   ^   ^  ^   ^    ^       ^    ^    ^  ^    ^  -> 14
 return {
   "chrisgrieser/nvim-spider",
   event = "VeryLazy",
