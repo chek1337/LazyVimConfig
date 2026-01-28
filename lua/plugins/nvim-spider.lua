@@ -1,7 +1,31 @@
 return {
   "chrisgrieser/nvim-spider",
   event = "VeryLazy",
+  dependencies = {
+    { "folke/snacks.nvim" },
+    {
+      "vhyrro/luarocks.nvim",
+      event = "VeryLazy",
+      -- priority = 100000,
+      opts = {
+        rocks = { "luautf8" },
+      },
+    },
+  },
   opts = function()
+    require("spider").setup({
+      skipInsignificantPunctuation = true,
+      subwordMovement = true,
+      consistentOperatorPending = false,
+      customPatterns = {
+        patterns = {
+          "[а-яА-ЯёЁ]+",
+          "[%aа-яА-ЯёЁ][%wа-яА-ЯёЁ]*",
+        },
+        overrideDefault = false,
+      },
+    })
+
     local spider_toggle = Snacks.toggle({
       name = "Spider motions",
       get = function()
@@ -9,7 +33,6 @@ return {
       end,
       set = function(state)
         vim.g.spider_mode = state
-
         if state then
           vim.keymap.set({ "n", "o", "x" }, "w", function()
             require("spider").motion("w")
@@ -33,7 +56,6 @@ return {
     })
 
     spider_toggle:map("<leader>u*")
-
     spider_toggle:set(true)
   end,
 }
