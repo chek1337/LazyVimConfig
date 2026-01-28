@@ -40,9 +40,32 @@ return {
   },
 
   {
+    "gbprod/nord.nvim",
+    name = "nord",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nord").setup({
+        nord_contrast = true,
+      })
+
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#292e39" })
+          vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#292e39" })
+          vim.api.nvim_set_hl(0, "Pmenu", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "PmenuSel", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "NONE" })
+        end,
+      })
+    end,
+  },
+
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "nord",
     },
   },
 }
