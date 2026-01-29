@@ -18,7 +18,7 @@ return {
         end, 100)
       end,
       always_show_bufferline = true,
-      separator_style = "slant",
+      separator_style = "thin", -- "slant" | "slope" | "thick" | "thin"
       indicator = {
         -- style = "underline", -- broken in tmux
       },
