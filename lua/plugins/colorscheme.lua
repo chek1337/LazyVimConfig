@@ -51,6 +51,13 @@ return {
           highlights.DiffDelete = { bg = "#582a33" }
         end,
       })
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#292e39" })
+          vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#292e39" })
+        end,
+      })
     end,
   },
 
