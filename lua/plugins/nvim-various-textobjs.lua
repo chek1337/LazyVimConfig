@@ -4,7 +4,7 @@ return {
   opts = {
     keymaps = {
       useDefaults = true,
-      disabledDefaults = { "r", "R" }, -- fix these later
+      disabledDefaults = { "r", "R", "n" }, -- fix these later
     },
   },
   config = function(_, opts)
