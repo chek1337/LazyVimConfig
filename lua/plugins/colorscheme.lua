@@ -47,15 +47,20 @@ return {
     config = function()
       require("nord").setup({
         on_highlights = function(highlights, colors)
-          highlights.DiffAdd = { bg = "#444f44" }
-          highlights.DiffDelete = { bg = "#582a33" }
+          highlights.DiffAdd = {
+            bg = "#1d3042",
+          } -- #1d3042 /  #2b342c / #30392f / #394545 / #444f44
+          --
+          highlights.DiffDelete = {
+            bg = "#351d2b",
+          } -- #351d2b / #582a33
         end,
       })
       vim.api.nvim_create_autocmd("ColorScheme", {
         pattern = "*",
         callback = function()
-          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#292e39" })
-          vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#292e39" })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#282d37" })
+          vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#282d37" })
         end,
       })
     end,

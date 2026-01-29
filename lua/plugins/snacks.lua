@@ -65,7 +65,7 @@ return {
         easing = "outExpo", --  outExpo, outInExpo, outBack, outInExpo
       },
     },
-    words = { enabled = false },
+    words = { enabled = true },
   },
   keys = {
     { "<leader>uC", false },
