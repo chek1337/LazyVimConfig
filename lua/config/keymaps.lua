@@ -33,6 +33,9 @@ vim.keymap.set("n", "<leader>M", "<cmd>Mason<CR>", { desc = "Open Mason" })
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 vim.keymap.del("n", "<leader>l")
 
+vim.keymap.del("n", "<leader>dpp")
+vim.keymap.del("n", "<leader>dph")
+
 vim.keymap.set("n", "<leader>udd", function()
   local cfg = vim.diagnostic.config()
   local virt = cfg.virtual_lines
