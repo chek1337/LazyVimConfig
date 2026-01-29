@@ -3,8 +3,8 @@ return {
   event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    -- "sindrets/diffview.nvim",
     "folke/snacks.nvim",
+    "esmuellert/codediff.nvim",
   },
   cmd = "Neogit",
   keys = {
@@ -15,7 +15,9 @@ return {
     integrations = {
       telescope = false,
       snacks = true,
-      diffview = true,
+      diffview = false,
+      codediff = true,
     },
+    diff_viewer = "codediff",
   },
 }
