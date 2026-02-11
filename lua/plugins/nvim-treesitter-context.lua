@@ -14,7 +14,7 @@ return {
     },
   },
   opts = {
-    enable = true,
+    enable = false,
     mode = "cursor", -- 'cursor'/'topline'
   },
   config = function(_, opts)
