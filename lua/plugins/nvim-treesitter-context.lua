@@ -12,6 +12,14 @@ return {
       silent = true,
       desc = "Jump to context",
     },
+    {
+      "<leader>uC",
+      function()
+        vim.cmd("silent TSContext toggle")
+      end,
+      mode = "n",
+      desc = "Toggle Treesitter Context",
+    },
   },
   opts = {
     enable = false,
@@ -19,22 +27,6 @@ return {
   },
   config = function(_, opts)
     require("treesitter-context").setup(opts)
-
-    local context_toggle = Snacks.toggle({
-      name = "Treesitter Context",
-      get = function()
-        return require("treesitter-context").enabled()
-      end,
-      set = function(state)
-        if state then
-          require("treesitter-context").enable()
-        else
-          require("treesitter-context").disable()
-        end
-      end,
-    })
-
-    context_toggle:map("<leader>uC")
     -- vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "#181825" })
     -- vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { fg = "#45475a" })
     --

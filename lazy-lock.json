@@ -29,7 +29,7 @@
   "neogit": { "branch": "master", "commit": "73870229977fdd8747025820e15e98cfde787b9c" },
   "noice.nvim": { "branch": "main", "commit": "7bfd942445fb63089b59f97ca487d605e715f155" },
   "nord": { "branch": "main", "commit": "07647ad23e5b7fc1599a841dcd8f173b9aeb0419" },
-  "notebook_style.nvim": { "branch": "main", "commit": "940ccfcab38b1047c9d153e1c6b4ca97e57348e7" },
+  "notebook_style.nvim": { "branch": "main", "commit": "1c065be210041187828e7576b9053668640c9ce0" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-dap": { "branch": "master", "commit": "db321947bb289a2d4d76a32e76e4d2bd6103d7df" },
   "nvim-dap-python": { "branch": "master", "commit": "1808458eba2b18f178f990e01376941a42c7f93b" },
