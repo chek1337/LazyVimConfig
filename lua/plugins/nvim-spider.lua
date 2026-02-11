@@ -5,32 +5,27 @@
 -- positions spider's `w` will move to
 -- if foo:find("%d") and foo == bar then print("[foo] has" .. bar) end
 --    ^   ^      ^   ^   ^   ^  ^   ^    ^       ^    ^    ^  ^    ^  -> 14
+
+-- некоторый русский текст
 return {
   "chrisgrieser/nvim-spider",
   event = "VeryLazy",
   dependencies = {
     { "folke/snacks.nvim" },
-    {
-      "vhyrro/luarocks.nvim",
-      event = "VeryLazy",
-      -- priority = 100000,
-      opts = {
-        rocks = { "luautf8" },
-      },
-    },
+    -- { "rami3l/nvim-spider-utf8", build = "rockspec" },
   },
   opts = function()
     require("spider").setup({
       skipInsignificantPunctuation = true,
       subwordMovement = true,
       consistentOperatorPending = false,
-      customPatterns = {
-        patterns = {
-          "[а-яА-ЯёЁ]+",
-          "[%aа-яА-ЯёЁ][%wа-яА-ЯёЁ]*",
-        },
-        overrideDefault = false,
-      },
+      -- customPatterns = {
+      --   patterns = {
+      --     "[а-яА-ЯёЁ]+",
+      --     "[%aа-яА-ЯёЁ][%wа-яА-ЯёЁ]*",
+      --   },
+      --   overrideDefault = false,
+      -- },
     })
 
     local spider_toggle = Snacks.toggle({
