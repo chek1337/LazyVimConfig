@@ -11,6 +11,7 @@ return {
       "black",
       "jq",
       "ast-grep",
+      "marksman",
     },
   },
 }
