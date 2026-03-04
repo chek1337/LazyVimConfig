@@ -8,6 +8,7 @@ return {
       python = { "black" },
       json = { "jq" },
       jsonc = { "jq" },
+      nix = { "nixfmt" },
     },
   },
 }

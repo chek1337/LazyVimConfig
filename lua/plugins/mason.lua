@@ -12,6 +12,8 @@ return {
       "jq",
       "ast-grep",
       "marksman",
+      "nil",
+      "nixfmt",
     },
   },
 }

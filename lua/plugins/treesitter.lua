@@ -7,6 +7,7 @@ return {
       "make",
       "cmake",
       "python",
+      "nix",
     },
   },
 }
